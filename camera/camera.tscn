@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1si8tdrid7vl"]
+
+[ext_resource type="Script" path="res://camera/camera.gd" id="1_ww8aa"]
+[ext_resource type="Script" path="res://camera/Camera3D.gd" id="2_pqagr"]
+
+[sub_resource type="Curve" id="Curve_vvs7e"]
+_data = [Vector2(0.110526, 1), 0.0, 0.0, 0, 0, Vector2(0.468421, 0.131868), -0.25055, -0.25055, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_k8ln8"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.47347, 0.0, 0, 0]
+point_count = 2
+
+[node name="camera" type="Node3D"]
+script = ExtResource("1_ww8aa")
+rotation_curve = SubResource("Curve_vvs7e")
+zoom_curve = SubResource("Curve_k8ln8")
+max_zoom = 45
+camera_move_smooth = 0.101
+
+[node name="rotation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.87177, -0.489915, 0, 0.489915, 0.87177, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="rotation"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.885, 0)
+current = true
+script = ExtResource("2_pqagr")
